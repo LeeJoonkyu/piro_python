@@ -3,21 +3,6 @@
 #     def function(self,인자):
 #         name.property
 #         print()
-#class -> 데이터를 만드는 틀
-#class의 인스턴스 ->만들어진 과자. data 뭉치 덩어리
-#user interface -> print_intro() -> print해주기
-
- #gamestart()->실행시
- #print_intro() -> print해주기
- #get_user_input()->실행시 return input str
- #calc_result->실행시 return key->value(win,lose,draw)
- #print_result()->실행 시 print
-
- # class name(인자):
-#     property
-#     def function(self,인자):
-#         name.property
-#         print()
 # class userinterface() 정의
 
 import random
@@ -26,7 +11,7 @@ class game():
     intro_msg = "가위 바위 보 게임 !! 안녕하세요"
     input_msg = "1.가위 2. 바위 3. 보 종료(q,Q)"
     choice_list = ('가위','바위','보')
-    print_confirm_msg="{user}를 내셨군요, 저는 {com}을 냈습니다."
+    confirm_msg = "{user}를 내셨군요, 저는 {com}을 냈습니다."
     user = None
     com = None
     calc_result = None
@@ -71,7 +56,7 @@ class game():
             self.result = "lose"
         elif self.com % 3 + 1 == self.user:
             self.result = "win"
-        return self.result
+        #return self.result
     def print_result(self):
         if self.result == "win":
             print("이겼습니다")
@@ -79,6 +64,9 @@ class game():
             print("졌습니다")
         else:
             print("비겼습니다")
+    def print_confirm_msg(self):
+        print(self.confirm_msg.format(user = self.user, com = self.com))
+
 
 rock = game()
 rock.start()
